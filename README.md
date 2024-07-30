@@ -16,21 +16,44 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Backend Integration
 
-## Learn More
+First, install `roomq` library
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install roomq
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a middleware to intercept request, please refer `middleware.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Frontend Integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add script tag to the page, refer to `app/layout.tsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+```jsx
+<Script
+    type="text/javascript"
+    src="https://scripts.noq.com.hk/v2.0.7/noq-vwr.min.js?c=client-dev&cookie_key=[be_roomq_t_client-dev]"
+    />
+```
+
+Then a `RoomQ` Object will be exist in window object.
+
+## Start demo
+
+Create a config file `.env.local`
+
+```
+ROOM_ID=
+ROOM_SECRET=
+ROOMQ_TICKET_ISSUER=
+```
+
+
+```bash
+npm run dev
+```
