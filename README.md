@@ -43,6 +43,15 @@ Add script tag to the page, refer to `app/layout.tsx`
 
 Then a `RoomQ` Object will be exist in window object.
 
+
+#### Check ticket
+
+For each page, `checkTicket` can be used to check the ticket validity, it will redirect the user to waiting room if needed.
+
+```
+RoomQ.checkTicket()
+```
+
 ## Start demo
 
 Create a config file `.env.local`
