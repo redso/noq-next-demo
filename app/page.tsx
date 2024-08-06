@@ -11,7 +11,9 @@ export default function Home({}) {
   };
 
   useEffect(() => {
-    RoomQ.checkTicket();
+    if (window.RoomQ) {
+      RoomQ.checkTicket();
+    }
   }, []);
 
   return (
